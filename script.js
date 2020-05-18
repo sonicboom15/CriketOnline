@@ -165,6 +165,15 @@ var playButton = function (button) {
     }
     console.log(teams);
 };
+var toNewPage = function () {
+    var dataInput = document.createElement("input");
+    dataInput.type = "hidden";
+    dataInput.value = JSON.stringify(teams);
+    var form = document.getElementById("generateform");
+    form.appendChild(dataInput);
+    sessionStorage["matchdata"] = dataInput.value;
+    form.submit();
+};
 window.onload = function () {
     teams.push(new Team());
     teams.push(new Team());

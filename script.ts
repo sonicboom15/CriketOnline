@@ -169,6 +169,16 @@ let playButton = (button) =>{
     console.log(teams);
 }
 
+let toNewPage = () =>{
+    let dataInput = <HTMLInputElement>document.createElement("input");
+    dataInput.type = "hidden";
+    dataInput.value = JSON.stringify(teams);
+    let form = <HTMLFormElement>document.getElementById("generateform")
+    form.appendChild(dataInput);
+    sessionStorage["matchdata"]= dataInput.value;
+    form.submit();
+}
+
 window.onload = ()=>{
     teams.push(new Team());
     teams.push(new Team());
